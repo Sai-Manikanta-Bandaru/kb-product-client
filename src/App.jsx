@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import AdminLayout from './layouts/AdminLayout';
 import Clients from './pages/Clients';
+import ClientDetails from './pages/ClientDetails';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           {/* Redirect / to /clients by default */}
           <Route index element={<Navigate to="/clients" replace />} />
           <Route path="clients" element={<Clients />} />
+          <Route path="clients/:clientId" element={<ClientDetails />} />
         </Route>
       </Routes>
     </Router>

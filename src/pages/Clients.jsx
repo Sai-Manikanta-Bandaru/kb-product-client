@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import Table from '../components/ui/Table';
 import ConfirmDialog from '../components/ui/ConfirmDialog';
 import ClientFormModal from '../components/clients/ClientFormModal';
@@ -141,6 +142,12 @@ const Clients = () => {
       header: 'Actions',
       render: (client) => (
         <div className="flex space-x-3">
+          <Link 
+            to={`/clients/${client._id}`}
+            className="text-blue-600 hover:text-blue-900 transition font-medium"
+          >
+            View
+          </Link>
           <button 
             onClick={() => handleEditClick(client)}
             className="text-indigo-600 hover:text-indigo-900 transition"
