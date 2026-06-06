@@ -1,17 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import AdminLayout from './layouts/AdminLayout';
+import Clients from './pages/Clients';
 
 function App() {
   return (
-    <>
-      <div className="App">
-        Hello Vite + React!
-      </div>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<AdminLayout />}>
+          {/* Redirect / to /clients by default */}
+          <Route index element={<Navigate to="/clients" replace />} />
+          <Route path="clients" element={<Clients />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
