@@ -88,7 +88,7 @@ const ContentFormModal = ({ isOpen, onClose, onSubmit, isLoading, screenId }) =>
                 <div className="flex text-sm text-gray-600 justify-center">
                   <label
                     htmlFor="file-upload"
-                    className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                    className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                   >
                     <span>Upload a file</span>
                     <input
@@ -129,7 +129,7 @@ const ContentFormModal = ({ isOpen, onClose, onSubmit, isLoading, screenId }) =>
             <button
               type="submit"
               disabled={isLoading || !file}
-              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium transition flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-blue-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium transition flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <>

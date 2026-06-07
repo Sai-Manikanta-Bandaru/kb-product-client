@@ -8,15 +8,15 @@ import { getScreens, createScreen, updateScreen, deleteScreen } from '../service
 
 const ClientDetails = () => {
   const { clientId } = useParams();
-  
+
   // Client state
   const [client, setClient] = useState(null);
   const [isClientLoading, setIsClientLoading] = useState(true);
-  
+
   // Screens state
   const [screens, setScreens] = useState([]);
   const [isScreensLoading, setIsScreensLoading] = useState(true);
-  
+
   // Shared state
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
@@ -24,7 +24,7 @@ const ClientDetails = () => {
   // Modal states
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  
+
   // Action states
   const [selectedScreen, setSelectedScreen] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -127,7 +127,7 @@ const ClientDetails = () => {
 
   const handleConfirmDelete = async () => {
     if (!selectedScreen) return;
-    
+
     setIsDeleting(true);
     setError(null);
     try {
@@ -147,34 +147,33 @@ const ClientDetails = () => {
   };
 
   const columns = [
-    { 
-      header: 'Screen Name', 
+    {
+      header: 'Screen Name',
       accessor: 'name',
       render: (screen) => (
-        <Link 
+        <Link
           to={`/clients/${clientId}/screens/${screen._id}`}
-          className="text-indigo-600 hover:text-indigo-900 font-medium hover:underline"
+          className="text-blue-600 hover:text-indigo-900 font-medium hover:underline"
         >
           {screen.name}
         </Link>
       )
     },
     { header: 'Description', accessor: 'description' },
-    { 
-      header: 'Status', 
+    {
+      header: 'Status',
       accessor: 'status',
       render: (screen) => (
-        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${
-          screen.status === 'active' 
-            ? 'bg-green-100 text-green-800' 
-            : 'bg-gray-100 text-gray-800'
-        }`}>
+        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${screen.status === 'active'
+          ? 'bg-green-100 text-green-800'
+          : 'bg-gray-100 text-gray-800'
+          }`}>
           {screen.status || 'active'}
         </span>
       )
     },
-    { 
-      header: 'Created Date', 
+    {
+      header: 'Created Date',
       accessor: 'createdAt',
       render: (screen) => screen.createdAt ? new Date(screen.createdAt).toLocaleDateString() : '-'
     },
@@ -182,13 +181,13 @@ const ClientDetails = () => {
       header: 'Actions',
       render: (screen) => (
         <div className="flex space-x-3">
-          <button 
+          <button
             onClick={() => handleEditClick(screen)}
-            className="text-indigo-600 hover:text-indigo-900 transition font-medium"
+            className="text-blue-600 hover:text-indigo-900 transition font-medium"
           >
             Edit
           </button>
-          <button 
+          <button
             onClick={() => handleDeleteClick(screen)}
             className="text-red-600 hover:text-red-900 transition font-medium"
           >
@@ -211,7 +210,7 @@ const ClientDetails = () => {
     return (
       <div className="text-center py-10">
         <h2 className="text-2xl font-bold text-gray-900">Client not found</h2>
-        <Link to="/clients" className="text-indigo-600 hover:underline mt-4 inline-block">Back to Clients</Link>
+        <Link to="/clients" className="text-blue-600 hover:underline mt-4 inline-block">Back to Clients</Link>
       </div>
     );
   }
@@ -220,7 +219,7 @@ const ClientDetails = () => {
     <div className="max-w-7xl mx-auto space-y-6">
       {/* Breadcrumb Navigation */}
       <div className="flex items-center text-sm text-gray-500 space-x-2">
-        <Link to="/clients" className="hover:text-indigo-600 transition">Clients List</Link>
+        <Link to="/clients" className="hover:text-blue-600 transition">Clients List</Link>
         <span>/</span>
         <span className="text-gray-900 font-medium">{client.name}</span>
       </div>
@@ -244,11 +243,10 @@ const ClientDetails = () => {
             <h1 className="text-2xl font-bold text-gray-900 tracking-tight">{client.name}</h1>
             <p className="text-sm text-gray-500 mt-2 max-w-2xl">{client.description || 'No description provided.'}</p>
           </div>
-          <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium capitalize ${
-            client.status === 'active' 
-              ? 'bg-green-100 text-green-800' 
-              : 'bg-gray-100 text-gray-800'
-          }`}>
+          <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium capitalize ${client.status === 'active'
+            ? 'bg-green-100 text-green-800'
+            : 'bg-gray-100 text-gray-800'
+            }`}>
             {client.status}
           </span>
         </div>
@@ -262,7 +260,7 @@ const ClientDetails = () => {
         </div>
         <button
           onClick={handleAddClick}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center shadow-sm"
+          className="bg-blue-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center shadow-sm"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />

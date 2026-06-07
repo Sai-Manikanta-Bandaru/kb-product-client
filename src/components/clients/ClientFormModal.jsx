@@ -32,9 +32,9 @@ const ClientFormModal = ({ isOpen, onClose, onSubmit, initialData = null, isLoad
   }, [isOpen, initialData, reset]);
 
   return (
-    <Modal 
-      isOpen={isOpen} 
-      onClose={onClose} 
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
       title={isEditMode ? 'Edit Client' : 'Add Client'}
     >
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -90,7 +90,7 @@ const ClientFormModal = ({ isOpen, onClose, onSubmit, initialData = null, isLoad
           </button>
           <button
             type="submit"
-            className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition flex items-center justify-center min-w-[100px]"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-indigo-700 transition flex items-center justify-center min-w-[100px]"
             disabled={isLoading}
           >
             {isLoading ? (

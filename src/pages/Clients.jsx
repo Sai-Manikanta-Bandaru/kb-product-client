@@ -14,7 +14,7 @@ const Clients = () => {
   // Modal states
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  
+
   // Action states
   const [selectedClient, setSelectedClient] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -98,7 +98,7 @@ const Clients = () => {
 
   const handleConfirmDelete = async () => {
     if (!selectedClient) return;
-    
+
     setIsDeleting(true);
     setError(null);
     try {
@@ -120,21 +120,20 @@ const Clients = () => {
   const columns = [
     { header: 'Name', accessor: 'name' },
     { header: 'Description', accessor: 'description' },
-    { 
-      header: 'Status', 
+    {
+      header: 'Status',
       accessor: 'status',
       render: (client) => (
-        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${
-          client.status === 'active' 
-            ? 'bg-green-100 text-green-800' 
-            : 'bg-gray-100 text-gray-800'
-        }`}>
+        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${client.status === 'active'
+          ? 'bg-green-100 text-green-800'
+          : 'bg-gray-100 text-gray-800'
+          }`}>
           {client.status}
         </span>
       )
     },
-    { 
-      header: 'Created Date', 
+    {
+      header: 'Created Date',
       accessor: 'createdAt',
       render: (client) => new Date(client.createdAt).toLocaleDateString()
     },
@@ -142,19 +141,19 @@ const Clients = () => {
       header: 'Actions',
       render: (client) => (
         <div className="flex space-x-3">
-          <Link 
+          <Link
             to={`/clients/${client._id}`}
             className="text-blue-600 hover:text-blue-900 transition font-medium"
           >
             View
           </Link>
-          <button 
+          <button
             onClick={() => handleEditClick(client)}
-            className="text-indigo-600 hover:text-indigo-900 transition"
+            className="text-blue-600 hover:text-indigo-900 transition"
           >
             Edit
           </button>
-          <button 
+          <button
             onClick={() => handleDeleteClick(client)}
             className="text-red-600 hover:text-red-900 transition"
           >
@@ -175,7 +174,7 @@ const Clients = () => {
         </div>
         <button
           onClick={handleAddClick}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center shadow-sm"
+          className="bg-blue-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center shadow-sm"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />

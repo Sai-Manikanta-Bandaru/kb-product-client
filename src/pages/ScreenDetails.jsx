@@ -237,7 +237,7 @@ const ScreenDetails = () => {
     return (
       <div className="text-center py-10">
         <h2 className="text-2xl font-bold text-gray-900">Details not found</h2>
-        <Link to={`/clients/${clientId}`} className="text-indigo-600 hover:underline mt-4 inline-block">Back to Client</Link>
+        <Link to={`/clients/${clientId}`} className="text-blue-600 hover:underline mt-4 inline-block">Back to Client</Link>
       </div>
     );
   }
@@ -246,9 +246,9 @@ const ScreenDetails = () => {
     <div className="max-w-7xl mx-auto space-y-6">
       {/* Breadcrumb Navigation */}
       <div className="flex items-center text-sm text-gray-500 space-x-2">
-        <Link to="/clients" className="hover:text-indigo-600 transition">Clients</Link>
+        <Link to="/clients" className="hover:text-blue-600 transition">Clients</Link>
         <span>/</span>
-        <Link to={`/clients/${clientId}`} className="hover:text-indigo-600 transition">{client.name}</Link>
+        <Link to={`/clients/${clientId}`} className="hover:text-blue-600 transition">{client.name}</Link>
         <span>/</span>
         <span className="text-gray-900 font-medium">{screen.name}</span>
       </div>
@@ -327,7 +327,7 @@ const ScreenDetails = () => {
         </div>
         <button
           onClick={() => setIsUploadModalOpen(true)}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center shadow-sm"
+          className="bg-blue-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center shadow-sm"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
