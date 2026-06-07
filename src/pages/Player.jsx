@@ -14,8 +14,8 @@ const Player = () => {
 
   const fetchContent = async () => {
     try {
-      const response = await axios.get(`http://localhost:9000/player?clientSlug=${clientSlug}&screenSlug=${screenSlug}`);
-      
+      const response = await axios.get(`https://kb-product-server.onrender.com/player?clientSlug=${clientSlug}&screenSlug=${screenSlug}`);
+
       if (response.data.success) {
         setContentData(response.data.data.content);
         setNoContent(false);
@@ -29,11 +29,11 @@ const Player = () => {
       console.error("Failed to fetch player content:", err);
       // Determine if error is a 404/no content vs an actual server/network error
       if (err.response && err.response.status === 404) {
-          setNoContent(true);
-          setContentData(null);
-          setError(false);
+        setNoContent(true);
+        setContentData(null);
+        setError(false);
       } else {
-          setError(true);
+        setError(true);
       }
     } finally {
       setLoading(false);
@@ -114,11 +114,11 @@ const Player = () => {
   if (mediaType === 'video') {
     return (
       <div style={fullScreenStyle}>
-        <video 
+        <video
           src={filePath}
-          autoPlay 
-          muted 
-          loop 
+          autoPlay
+          muted
+          loop
           playsInline
           style={mediaStyle}
         />
@@ -129,10 +129,10 @@ const Player = () => {
   if (mediaType === 'image') {
     return (
       <div style={fullScreenStyle}>
-        <img 
-          src={filePath} 
-          alt="DOOH Content" 
-          style={mediaStyle} 
+        <img
+          src={filePath}
+          alt="DOOH Content"
+          style={mediaStyle}
         />
       </div>
     );

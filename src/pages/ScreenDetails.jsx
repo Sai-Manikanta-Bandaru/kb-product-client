@@ -166,7 +166,7 @@ const ScreenDetails = () => {
     {
       header: 'Preview',
       render: (content) => {
-        const mediaUrl = `http://localhost:9000/${content.filePath}`;
+        const mediaUrl = `https://kb-product-server.onrender.com/${content.filePath}`;
         if (content.mediaType === 'video') {
           return (
             <div className="w-16 h-12 bg-gray-100 rounded flex items-center justify-center overflow-hidden border border-gray-200">
@@ -281,10 +281,10 @@ const ScreenDetails = () => {
               {screen.status}
             </span>
           </div>
-          
+
           {/* Live Player Preview */}
           <div className="flex-1 bg-black rounded-lg overflow-hidden border border-gray-800 min-h-[240px] relative">
-            <iframe 
+            <iframe
               src={`${window.location.origin}/player?clientSlug=${client.slug}&screenSlug=${screen.slug}`}
               className="absolute top-0 left-0 w-full h-full border-0 pointer-events-none"
               title="Live Screen Preview"
