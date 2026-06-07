@@ -147,7 +147,18 @@ const ClientDetails = () => {
   };
 
   const columns = [
-    { header: 'Screen Name', accessor: 'name' },
+    { 
+      header: 'Screen Name', 
+      accessor: 'name',
+      render: (screen) => (
+        <Link 
+          to={`/clients/${clientId}/screens/${screen._id}`}
+          className="text-indigo-600 hover:text-indigo-900 font-medium hover:underline"
+        >
+          {screen.name}
+        </Link>
+      )
+    },
     { header: 'Description', accessor: 'description' },
     { 
       header: 'Status', 
