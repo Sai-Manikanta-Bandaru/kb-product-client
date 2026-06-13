@@ -4,6 +4,8 @@ import Clients from './pages/Clients';
 import ClientDetails from './pages/ClientDetails';
 import ScreenDetails from './pages/ScreenDetails';
 import Player from './pages/Player';
+import Login from './pages/Login';
+import ProtectedRoute from './routes/ProtectedRoute';
 
 function App() {
   return (
@@ -13,8 +15,15 @@ function App() {
         <Route path="/player/:clientSlug/:screenSlug" element={<Player />} />
         <Route path="/player" element={<Player />} />
 
+        {/* Public Login Route */}
+        <Route path="/login" element={<Login />} />
+
         {/* Admin Routes with Layout */}
-        <Route path="/" element={<AdminLayout />}>
+        <Route path="/" element={
+          <ProtectedRoute>
+            <AdminLayout />
+          </ProtectedRoute>
+        }>
           {/* Redirect / to /clients by default */}
           <Route index element={<Navigate to="/clients" replace />} />
           <Route path="clients" element={<Clients />} />
